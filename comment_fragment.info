@@ -1,0 +1,6 @@
+name = Comment Fragment
+description = Rewrite the comment permalink to use fragment for SEO purposes.
+core=7.x
+files[] = comment_fragment.module
+dependencies[] = comment
+package = SEO
