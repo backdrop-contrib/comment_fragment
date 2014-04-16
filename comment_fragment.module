@@ -67,12 +67,12 @@ function comment_fragment_permalink($cid) {
 
     // Find the current display page for this comment.
     $page = comment_get_display_page($comment->cid, $node->type);
-	
+
     // Redirect the old comment permalink.
     if ($page > 0) {
-      drupal_goto('node/' . $comment->nid, array('fragment' => 'comment-' . $comment->cid,'query' => array('page'=> $page)), 301);
+      drupal_goto('node/' . $comment->nid, array('fragment' => 'comment-' . $comment->cid, 'query' => array('page' => $page)), 301);
     }
-    else{
+    else {
       drupal_goto('node/' . $comment->nid, array('fragment' => 'comment-' . $comment->cid), 301);
     }
   }
