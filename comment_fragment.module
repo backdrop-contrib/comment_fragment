@@ -53,5 +53,6 @@ function comment_fragment_permalink($cid) {
       drupal_goto('node/' . $comment->nid, array('fragment' => 'comment-' . $comment->cid), 301);
     }
   }
-  drupal_not_found();
+
+  return MENU_NOT_FOUND;
 }
