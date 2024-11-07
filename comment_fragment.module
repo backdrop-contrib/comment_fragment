@@ -1,4 +1,18 @@
 <?php
+/**
+ * @file
+ * Rewrites the comment permalink to use fragment for SEO purposes.
+ */
+
+/**
+ * Implements hook_autoload_info().
+ */
+function comment_fragment_autoload_info() {
+  return array(
+    'comment_fragment_handler_field_comment_link' => 'views/comment_fragment_handler_field_comment_link.inc',
+    'comment_fragment_handler_field_comment_path' => 'views/comment_fragment_handler_field_comment_path.inc',
+  );
+}
 
 /**
  * Implements hook_entity_info().
@@ -42,7 +56,7 @@ function comment_fragment_menu_alter(&$items) {
 function comment_fragment_permalink($cid) {
   if ($comment = comment_load($cid)) {
     $uri = comment_fragment_uri($comment);
-    drupal_goto($uri['path'], $uri['options']);
+    backdrop_goto($uri['path'], $uri['options']);
   }
 
   return MENU_NOT_FOUND;
@@ -54,6 +68,6 @@ function comment_fragment_permalink($cid) {
 function comment_fragment_views_api() {
   return array(
     'api' => 3,
-    'path' => drupal_get_path('module', 'comment_fragment') . '/views',
+    'path' => backdrop_get_path('module', 'comment_fragment') . '/views',
   );
 }

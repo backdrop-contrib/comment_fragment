@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Views definitions for comment_fragment module.
