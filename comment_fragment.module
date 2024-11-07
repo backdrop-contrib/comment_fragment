@@ -15,7 +15,7 @@ function comment_fragment_autoload_info() {
 }
 
 /**
- * Implements hook_entity_info().
+ * Implements hook_entity_info_alter().
  */
 function comment_fragment_entity_info_alter(&$entity_info) {
   $entity_info['comment']['uri callback'] = 'comment_fragment_uri';
@@ -60,6 +60,21 @@ function comment_fragment_permalink($cid) {
   }
 
   return MENU_NOT_FOUND;
+}
+
+/**
+ * Prepares variables for comment templates.
+ *
+ * @see comment.tpl.php
+ */
+function comment_fragment_preprocess_comment(&$variables) {
+  $comment = $variables['elements']['#comment'];
+  $uri = comment_fragment_uri($comment);
+  $uri['options'] += array('attributes' => array('class' => array('permalink'), 'rel' => 'bookmark'));
+
+  // Replace the links automatically printed in the comments.
+  $variables['permalink'] = l(t('Permalink'), $uri['path'], $uri['options']);
+  $variables['permalink_path'] = $uri['path'] . "#" . $uri['options']['fragment'];
 }
 
 /**
