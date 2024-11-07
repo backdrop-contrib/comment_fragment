@@ -47,3 +47,13 @@ function comment_fragment_permalink($cid) {
 
   return MENU_NOT_FOUND;
 }
+
+/**
+ * Implements hook_views_api().
+ */
+function comment_fragment_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'comment_fragment') . '/views',
+  );
+}

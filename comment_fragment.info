@@ -3,3 +3,8 @@ description = Rewrite the comment permalink to use fragment for SEO purposes.
 core = 7.x
 dependencies[] = comment
 package = SEO
+
+; Views Handlers
+files[] = views/comment_fragment.views.inc
+files[] = views/comment_fragment_handler_field_comment_link.inc
+files[] = views/comment_fragment_handler_field_comment_path.inc
