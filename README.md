@@ -20,16 +20,13 @@ Installation <!-- This section is required. -->
 - Install this module using the official Backdrop CMS instructions at
   https://docs.backdropcms.org/documentation/extend-with-modules.
 
-- Visit the configuration page under Administration > Configuration > Category >
-  Foo (admin/config/category/foo) and enter the required information.
-
-- Any additional steps.
+  (This module does not have any configuration.)
 
 
-Differences from Drupal 7 <!-- Do not include if there are no differences. -->
+Differences from Drupal 7
 -------------------------
 
-- Administrative interface has been improved.
+- Alters the links printed in the comment template.
 
 
 Issues <!-- This section is required. -->
